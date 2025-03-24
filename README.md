@@ -123,16 +123,6 @@ Dưới đây là các bài toán được điều chỉnh và bổ sung theo y�
 
 ---
 
-### **Nhận xét**:  
-Các bài toán đa dạng từ **MDE thuần túy** (Bài 4) đến **AI đơn lẻ** (Bài 5) và **kết hợp** (Bài 1-3, 6). Để tăng tính độc quyền, cần tập trung vào:  
-1. **Cơ chế giao tiếp đa nền tảng** (Bài 4: Cross-OS Protocol).  
-2. **Thuật toán học tập cá nhân hóa** (Bài 2, 5).  
-3. **Tích hợp cảm biến đa thiết bị** (Bài 6: Ambient Context Analyzer).
-
-Dưới đây là các bài toán mới tập trung vào **ứng dụng AI trên thiết bị di động**, kèm kịch bản người dùng chi tiết và giải pháp sáng tạo:
-
----
-
 ### **Bài toán 7: AI Dự đoán Sự cố Phần cứng Điện thoại**  
 **User Scenario**:  
 - *Nam, một nhân viên giao hàng, thường xuyên sử dụng điện thoại ngoài trời. Một ngày, điện thoại của anh đột ngột tắt nguồn do hỏng pin, khiến anh không liên lạc được với khách hàng. Anh phải tốn 2 ngày để sửa chữa, ảnh hưởng đến thu nhập.*  
@@ -264,9 +254,3 @@ Dưới đây là các bài toán mới tập trung vào **ứng dụng AI trên
   - Ví dụ: Avatar nháy mắt, cười hoặc nhíu mày đồng thời với người dùng.  
 
 ---
-
-### **Nhận xét**:  
-Các bài toán đều tập trung vào **điện thoại** và **AI on-device**, tận dụng sức mạnh phần cứng hiện đại (NPU, GPU) để xử lý tại chỗ. Để tăng tính độc quyền, cần kết hợp:  
-1. **Tích hợp cảm biến đa chiều** (camera, microphone, gia tốc kế).  
-2. **Mô hình AI tối ưu cho mobile** (TinyML, Quantization).  
-3. **Cá nhân hóa sâu** dựa trên dữ liệu người dùng cục bộ.
