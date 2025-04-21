@@ -1,22 +1,5 @@
-# generative_ai_docs
-Dưới đây là các bài toán được điều chỉnh và bổ sung theo yêu cầu, tập trung vào **kịch bản thực tế** và **mở rộng chủ đề** (bao gồm cả MDE, AI riêng lẻ và kết hợp):
-
----
 
 ### **Bài toán 1: Tối ưu đa nhiệm xuyên thiết bị khi họp trực tuyến**  
-**User Scenario**:  
-- *An, một quản lý dự án, đang họp online qua Zoom trên laptop. Cô dùng điện thoại để chia sẻ tài liệu từ Google Drive và điều khiển slide thuyết trình qua tablet. Đột nhiên, điện thoại nóng lên, ứng dụng bị treo, khiến cuộc họp gián đoạn. Trong khi đó, laptop vẫn còn nhiều RAM trống nhưng không được tận dụng.*  
-
-**User Problem**:  
-- Tài nguyên (CPU, RAM) không được phân bổ linh hoạt giữa các thiết bị khi chạy đa nhiệm.  
-- Người dùng phải thủ công chuyển task giữa các thiết bị, gây mất thời gian và giảm hiệu suất.  
-
-**User Expectation**:  
-- Hệ thống tự động chuyển task từ thiết bị quá tải sang thiết bị nhàn rỗi mà không làm gián đoạn công việc.  
-
-**Research**:  
-- Theo khảo sát của Statista (2023), 65% người dùng đa thiết bị gặp sự cố treo máy khi họp trực tuyến.  
-- Công nghệ Continuity của Apple chỉ hỗ trợ chuyển task đơn giản (ví dụ: Handoff) nhưng không xử lý được đa nhiệm phức tạp.  
 
 **Solution**:  
 - **AI Task Migrator**: Sử dụng mô hình AI để phân tích tải từng thiết bị và đề xuất chuyển task tối ưu. Ví dụ: Khi điện thoại quá nóng, AI tự động chuyển việc render slide sang laptop.  
@@ -106,151 +89,122 @@ Dưới đây là các bài toán được điều chỉnh và bổ sung theo y�
 ### **Bài toán 6 (AI + MDE): Tự động chuyển chế độ thiết bị theo ngữ cảnh**  
 **User Scenario**:  
 - *Trang, một người mẹ, thường xuyên quên chuyển điện thoại sang chế độ im lặng khi vào họp hoặc chuyển sang chế độ báo thức lớn khi dậy cho con đi học. Cô phải thao tác thủ công nhiều lần trong ngày.*  
+Chào bạn,
 
-**User Problem**:  
-- Thiết bị không tự động thích ứng với ngữ cảnh (ví dụ: vị trí, lịch trình, âm thanh xung quanh).  
-- Các chế độ mặc định (ví dụ: Driving Mode) không chính xác với nhu cầu cá nhân.  
-
-**User Expectation**:  
-- Điện thoại/đồng hồ thông minh tự động điều chỉnh chế độ dựa trên thói quen và môi trường.  
-
-**Research**:  
-- Tính năng Focus Mode của Apple chỉ dựa trên thời gian biểu cố định, không học được hành vi động.  
-- Nghiên cứu từ ĐH Stanford (2023): 60% người dùng cảm thấy phiền vì thông báo không đúng lúc.  
-
-**Solution**:  
-- **Ambient Context Analyzer**: AI phân tích dữ liệu đa thiết bị (lịch, microphone, gia tốc kế) để dự đoán ngữ cảnh và áp dụng chế độ phù hợp. Ví dụ: Tự động im lặng khi phát hiện người dùng đang trong cuộc họp qua micro và lịch Outlook.  
+Rất vui được hỗ trợ bạn với vai trò chuyên gia Generative AI. Ý tưởng của bạn về việc tự động hóa quy trình Approval bằng LLM và Tool Calling là rất thực tế và có tiềm năng lớn trong môi trường công ty A. Dưới đây là cách bạn có thể hoàn thiện ý tưởng này theo form của cuộc thi:
 
 ---
 
-### **Bài toán 7: AI Dự đoán Sự cố Phần cứng Điện thoại**  
-**User Scenario**:  
-- *Nam, một nhân viên giao hàng, thường xuyên sử dụng điện thoại ngoài trời. Một ngày, điện thoại của anh đột ngột tắt nguồn do hỏng pin, khiến anh không liên lạc được với khách hàng. Anh phải tốn 2 ngày để sửa chữa, ảnh hưởng đến thu nhập.*  
+**Đề xuất Dự án: Trợ lý Phê duyệt Thông minh (AI Approval Assistant)**
 
-**User Problem**:  
-- Người dùng không thể biết trước các lỗi phần cứng (pin yếu, cảm biến hỏng, mainboard lỗi) cho đến khi thiết bị ngừng hoạt động.  
-- Các ứng dụng kiểm tra sức khỏe thiết bị hiện tại chỉ đưa ra cảnh báo chung chung.  
+**1. Overview (Tổng quan)**
 
-**User Expectation**:  
-- Điện thoại cảnh báo sớm nguy cơ hỏng hóc và gợi ý cách xử lý (ví dụ: "Pin sắp phồng – Tránh sạc qua đêm").  
+* **1.1. Background: Current work process status and problem definition (AS-IS)**
+    * **Hiện trạng (AS-IS):** Tại công ty A, quy trình yêu cầu phê duyệt (Approval) cho các tác vụ liên quan đến IT và vận hành (như xin cấp IP, mở firewall, truy cập web, yêu cầu tài nguyên, v.v.) được quản lý chặt chẽ và đòi hỏi nhiều thủ tục. Hiện tại, nhân viên phải tự tìm kiếm thông tin hướng dẫn trong một kho tài liệu lớn bao gồm nhiều định dạng (PPT, Word, PDF), nằm rải rác ở nhiều nơi. Quá trình này tốn nhiều thời gian, dễ gây nhầm lẫn do có quá nhiều loại Approval với các bước thực hiện khác nhau, khó ghi nhớ và dễ dẫn đến sai sót khi điền form hoặc thực hiện thủ công. Việc này làm giảm hiệu suất làm việc và gây khó khăn không cần thiết cho nhân viên.
+    * **Vấn đề:**
+        * Tốn thời gian tìm kiếm thông tin và thực hiện thủ tục.
+        * Khó khăn trong việc ghi nhớ và tuân thủ đúng quy trình cho từng loại Approval.
+        * Nguy cơ sai sót cao khi thực hiện thủ công.
+        * Trải nghiệm không tốt của nhân viên khi phải xử lý các thủ tục phức tạp, lặp đi lặp lại.
+        * Kiến thức về quy trình bị phân mảnh, khó cập nhật và quản lý.
 
-**Research**:  
-- Theo iFixit (2023), 30% điện thoại Android bị lỗi phần cứng sau 2 năm sử dụng, nhưng chỉ 8% người dùng chủ động kiểm tra.  
-- Công cụ như Samsung Members chỉ phân tích log lỗi, không dự đoán được hỏng hóc.  
+* **1.2. Purpose: Goals and objectives to be achieved through AI (TO-BE)**
+    * **Mục tiêu chính (Goal):** Xây dựng một giải pháp ứng dụng Generative AI (sử dụng LLM được cung cấp) để đơn giản hóa và tự động hóa quy trình tạo yêu cầu Approval tại công ty A.
+    * **Mục tiêu cụ thể (Objectives):**
+        * Giảm đáng kể thời gian nhân viên bỏ ra để tìm hiểu và tạo yêu cầu Approval (ước tính giảm >70% thời gian so với hiện tại).
+        * Tăng độ chính xác và tính tuân thủ của các yêu cầu Approval bằng cách tự động hóa việc điền thông tin và chọn đúng quy trình.
+        * Cải thiện trải nghiệm của nhân viên bằng cách cung cấp một giao diện tương tác trực quan (ví dụ: chatbot) thay vì phải đọc tài liệu và làm thủ công.
+        * Trung tâm hóa nguồn kiến thức về quy trình Approval, giúp dễ dàng truy cập và cập nhật.
+        * Giải phóng thời gian cho nhân viên để tập trung vào các công việc có giá trị cao hơn.
 
-**Solution**:  
-- **Proactive Hardware Guardian**:  
-  - AI phân tích dữ liệu cảm biến (nhiệt độ, điện áp pin, tốc độ sạc) và so sánh với mô hình hỏng hóc phổ biến.  
-  - Ví dụ: Phát hiện pin sắp phồng qua thay đổi bất thường về nhiệt độ khi sạc.  
+* **1.3. Overview: Name and main feature of the AI service to be developed**
+    * **Tên dịch vụ AI:** **Trợ lý Phê duyệt Thông minh (AI Approval Assistant)** hoặc **AutoApprover**.
+    * **Tính năng chính:**
+        * **Hỏi đáp về quy trình:** Cho phép người dùng hỏi bằng ngôn ngữ tự nhiên về bất kỳ quy trình Approval nào (VD: "Làm thế nào để xin mở cổng firewall cho ứng dụng X?", "Tôi cần xin quyền truy cập vào trang web Y, phải làm gì?"). AI sẽ dựa trên kho kiến thức (tài liệu đã được xử lý) để trả lời chính xác.
+        * **Tự động tạo yêu cầu Approval:** Dựa trên yêu cầu của người dùng (qua chat hoặc điền form đơn giản), AI sẽ xác định đúng loại Approval, thu thập thông tin cần thiết (có thể hỏi thêm người dùng nếu thiếu) và tự động điền vào form/hệ thống Approval tương ứng thông qua cơ chế **Tool Calling** được tích hợp với API của LLM.
 
----
+* **1.4. Target user group and expected number of users**
+    * **Nhóm người dùng mục tiêu:** Toàn bộ nhân viên tại công ty A có nhu cầu thực hiện các yêu cầu Approval liên quan đến công việc (VD: IT, Vận hành, Nhân sự, Mua hàng...).
+    * **Số lượng người dùng dự kiến:** Phụ thuộc vào quy mô công ty A (ví dụ: nếu công ty có 500 nhân viên, có thể ước tính 400-500 người dùng tiềm năng). Trong giai đoạn PoC (Proof of Concept), có thể thử nghiệm với một phòng ban cụ thể (khoảng 50-100 người).
 
-### **Bài toán 8: Tối ưu hóa bộ nhớ RAM theo thói quen dùng app**  
-**User Scenario**:  
-- *Lin, một sinh viên, thường mở cùng lúc ứng dụng học online (Zoom), ghi chú (Notion) và tra cứu (Chrome). Điện thoại của cô liên tục đơ do thiếu RAM, buộc cô phải đóng ứng dụng thủ công.*  
+* **1.5. Expected benefits (estimated cost saving, target business metrics, etc.)**
+    * **Tiết kiệm chi phí:**
+        * **Giảm thời gian làm việc:** Giả sử trung bình mỗi nhân viên tiết kiệm được 1-2 giờ/tháng cho việc xử lý Approvals. Với N nhân viên, tổng thời gian tiết kiệm hàng năm là (1-2) * N * 12 giờ. Quy đổi ra chi phí nhân sự (dựa trên mức lương trung bình) sẽ là một con số đáng kể.
+        * **Giảm chi phí do sai sót:** Hạn chế các lỗi trong quá trình Approval có thể dẫn đến trì hoãn công việc hoặc vi phạm quy định.
+    * **Cải thiện chỉ số kinh doanh/vận hành:**
+        * **Tăng tốc độ xử lý yêu cầu:** Giúp các yêu cầu được tạo và gửi đi nhanh hơn, đẩy nhanh tiến độ công việc liên quan.
+        * **Tăng năng suất nhân viên:** Nhân viên dành ít thời gian hơn cho thủ tục hành chính, tập trung hơn vào chuyên môn.
+        * **Tăng mức độ hài lòng của nhân viên (Employee Satisfaction Score):** Giảm sự phiền phức trong công việc hàng ngày.
+        * **Tăng tính tuân thủ (Compliance Rate):** Đảm bảo các yêu cầu luôn được tạo đúng quy trình.
 
-**User Problem**:  
-- Cơ chế quản lý RAM truyền thống xóa app ngẫu nhiên hoặc theo thời gian mở, không ưu tiên ứng dụng quan trọng.  
-- Người dùng phải tự xử lý, gây gián đoạn công việc.  
+* **1.6. Expected potential to scale-up the service scope and value through increased user base (departments, businesses)**
+    * **Mở rộng người dùng:** Sau PoC thành công, dễ dàng triển khai cho toàn bộ các phòng ban trong công ty A.
+    * **Mở rộng loại Approval:** Bổ sung thêm các loại tài liệu hướng dẫn cho các quy trình Approval khác (không chỉ IT mà còn HR, Finance, Legal...) vào kho kiến thức của AI.
+    * **Mở rộng chức năng:**
+        * Tích hợp sâu hơn với các hệ thống backend (ERP, ITSM) để không chỉ tạo yêu cầu mà còn theo dõi trạng thái, tự động cập nhật.
+        * Phân tích dữ liệu Approval để đưa ra các đề xuất cải tiến quy trình.
+        * Áp dụng mô hình tương tự cho các loại tài liệu và quy trình nội bộ khác (VD: hướng dẫn sử dụng phần mềm, chính sách công ty...).
+    * **Mở rộng quy mô công ty:** Có thể triển khai cho các chi nhánh hoặc công ty con khác (nếu có).
 
-**User Expectation**:  
-- Hệ thống tự động giữ lại ứng dụng được dùng thường xuyên và đóng ứng dụng "ít giá trị" dựa trên thói quen.  
+**2. PoC Plan (Kế hoạch Proof of Concept)**
 
-**Research**:  
-- Android RAM Management dựa trên thuật toán LRU (Least Recently Used) không phù hợp với người dùng đa nhiệm.  
-- Khảo sát của GSMArena (2023): 56% người dùng phải khởi động lại điện thoại ít nhất 1 lần/ngày vì thiếu RAM.  
+* **2.1. List of data to be utilized (type, source, update frequency, etc.)**
+    * **Loại dữ liệu:** Tài liệu hướng dẫn quy trình Approval dạng phi cấu trúc (chủ yếu là văn bản, có thể kèm hình ảnh minh họa).
+    * **Nguồn dữ liệu:** Kho tài liệu nội bộ hiện có của công ty A (thư mục chia sẻ, Sharepoint, Confluence, v.v.).
+    * **Định dạng:** PP- **AI Task Migrator**: Sử dụng mô hình AI để phân tích tải từng thiết bị và đề xuất chuyển task tốụ: Khi điện thoại quá nóng, AI tự động chuyển việc render slide sang laptop.  cập nhật tài liệu vào hệ thống AI khi có thay đổi. Ban đầu, có thể cập nhật thủ công theo đợt (VD: hàng quý), sau đó có thể tự động hóa việc theo dõi thay đổi.
 
-**Solution**:  
-- **Personalized RAM Optimizer**:  
-  - AI học thói quen sử dụng app (thời gian, địa điểm, tần suất) để xây dựng biểu đồ ưu tiên.  
-  - Ví dụ: Tự động giữ Zoom và Notion mở trong khung giờ học (8-10 AM), đóng game và mạng xã hội.  
+* **2.2. Data collection, preprocessing, and AI utilization Plan**
+    * **Thu thập dữ liệu:** Tập hợp toàn bộ các file tài liệu hướng dẫn Approval liên quan từ các nguồn đã xác định.
+    * **Tiền xử lý (Preprocessing):**
+        * **Chuyển đổi định dạng:** Sử dụng các thư viện/công cụ để trích xuất nội dung text từ các file PPT, Word, PDF sang định dạng văn bản thuần túy (plain text) hoặc Markdown.
+        * **Phân đoạn (Chunking):** Chia nhỏ các tài liệu dài thành các đoạn văn bản có ý nghĩa, kích thước phù hợp để LLM xử lý hiệu quả (VD: chia theo section, heading, hoặc số lượng token nhất định).
+        * **Làm sạch dữ liệu:** Loại bỏ các thông tin thừa, định dạng không cần thiết.
+        * **(Quan trọng) Vector hóa (Embedding):** Sử dụng một mô hình embedding phù hợp (có thể là mô hình riêng hoặc được cung cấp) để chuyển đổi các đoạn văn bản thành các vector số học. Lưu trữ các vector này vào một cơ sở dữ liệu vector (Vector Database).
+    * **Kế hoạch sử dụng AI (LLM):**
+        * **Kiến trúc RAG (Retrieval-Augmented Generation):**
+            1.  Khi người dùng đặt câu hỏi hoặc yêu cầu tạo Approval, hệ thống sẽ chuyển đổi yêu cầu đó thành vector.
+            2.  Tìm kiếm các đoạn văn bản (chunk) có vector gần giống nhất với vector yêu cầu trong Vector Database (đây là bước Retrieval).
+            3.  Ghép nối yêu cầu gốc của người dùng và các đoạn văn bản liên quan đã tìm được thành một prompt hoàn chỉnh.
+            4.  Gửi prompt này đến LLM (thông qua API được cung cấp) để tạo ra câu trả lời hoặc xác định hành động cần thực hiện (Generation).
+        * **Sử dụng Tool Calling:**
+            1.  Định nghĩa các "tools" (thực chất là các function/API call) tương ứng với các hành động tạo Approval cụ thể (VD: `create_firewall_request(ip_address, port, reason)`, `request_website_access(url, justification)`).
+            2.  Trong prompt gửi đến LLM, mô tả rõ các tool này và cách sử dụng.
+            3.  Khi LLM nhận diện được yêu cầu cần tạo Approval cụ thể từ người dùng và thông tin liên quan (từ RAG hoặc hỏi thêm người dùng), nó sẽ quyết định gọi tool tương ứng với các tham số cần thiết.
+            4.  Hệ thống của bạn sẽ nhận lệnh gọi tool từ LLM, thực thi hành động (VD: gọi API của hệ thống Approval nội bộ, tạo một file yêu cầu...) và trả kết quả về cho LLM (và người dùng).
 
----
+* **2.3. AI implementation features and applied tasks**
+    * **Các tính năng AI cần triển khai:**
+        * NLU (Natural Language Understanding): Hiểu yêu cầu người dùng bằng ngôn ngữ tự nhiên.
+        * Information Retrieval: Tìm kiếm thông tin chính xác từ kho tài liệu đã xử lý.
+        * Text Generation: Sinh ra câu trả lời, giải thích quy trình.
+        * Tool/Function Calling: Khả năng nhận biết và gọi các hàm/API bên ngoài để thực hiện tác vụ cụ thể (tạo Approval).
+        * Conversational AI: Duy trì ngữ cảnh hội thoại, đặt câu hỏi làm rõ nếu cần.
+    * **Các tác vụ ứng dụng:**
+        * Question Answering (Trả lời câu hỏi về quy trình).
+        * Automated Form Filling / Request Generation (Tự động điền form/tạo yêu cầu).
+        * Task Automation (Tự động hóa tác vụ thông qua gọi tool).
 
-### **Bài toán 9: AI Lọc Thông báo Thông minh dựa trên Cảm xúc**  
-**User Scenario**:  
-- *Mai, một biên tập viên, nhận hàng chục thông báo mỗi giờ (email, Slack, tin nhắn cá nhân). Cô bị stress vì tiếng "ping" liên tục, kể cả khi đang tập trung viết bài hoặc trò chuyện với gia đình.*  
+* **2.4. Final output type (Chatbot, Copilot)**
+    * **Loại hình sản phẩm cuối:** **Chatbot**. Đây là hình thức phù hợp nhất cho phép người dùng tương tác hỏi đáp và yêu cầu tạo Approval một cách tự nhiên. Chatbot này có thể được triển khai dưới dạng một ứng dụng web nội bộ hoặc tích hợp vào các nền tảng giao tiếp hiện có của công ty (VD: Microsoft Teams, Slack...).
 
-**User Problem**:  
-- Chế độ "Không làm phiền" (Do Not Disturb) tắt mọi thông báo, có thể bỏ lỡ tin khẩn cấp.  
-- Hệ thống không phân biệt được thông báo quan trọng (ví dụ: email từ sếp) và tin rác.  
-
-**User Expectation**:  
-- Điện thoại chỉ hiển thị thông báo phù hợp với trạng thái cảm xúc và công việc hiện tại.  
-
-**Research**:  
-- Nghiên cứu từ ĐH Cambridge (2022) chứng minh thông báo không phù hợp làm tăng 34% mức độ lo âu.  
-- Ứng dụng như Bouncer chỉ lọc thông báo theo danh sách đen/trắng, không có khả năng thích ứng.  
-
-**Solution**:  
-- **Emotion-Aware Notification Filter**:  
-  - AI kết hợp dữ liệu camera selfie (biểu cảm mặt), cảm biến nhịp tim và lịch trình để đánh giá trạng thái người dùng.  
-  - Ví dụ: Tạm ẩn thông báo mạng xã hội nếu phát hiện người dùng đang cau mày tập trung.  
-
----
-
-### **Bài toán 10: Tự động điều chỉnh âm lượng theo môi trường và thính lực**  
-**User Scenario**:  
-- *Ông Hải, 70 tuổi, thường xuyên nghe điện thoại ở nơi ồn (chợ, đường phố). Ông phải chỉnh âm lượng tối đa nhưng vẫn không nghe rõ, vô tình làm hỏng tai nghe và ảnh hưởng thính lực.*  
-
-**User Problem**:  
-- Âm lượng mặc định không tính đến độ ồn môi trường hoặc khả năng nghe của người dùng.  
-- Người cao tuổi/người khiếm thính gặp khó khăn khi điều chỉnh thủ công.  
-
-**User Expectation**:  
-- Điện thoại tự động điều chỉnh âm lượng và tần số âm thanh phù hợp với môi trường và thính lực người dùng.  
-
-**Research**:  
-- WHO cảnh báo 1.1 tỷ người trẻ có nguy cơ mất thính lực do nghe điện thoại quá to.  
-- Tính năng Sound Amplifier của Android chỉ hỗ trợ người khiếm thính, không cá nhân hóa.  
-
-**Solution**:  
-- **Adaptive Sound Curator**:  
-  - AI phân tích độ ồn qua microphone, kết hợp dữ liệu lịch sử chỉnh âm lượng của người dùng để tạo profile âm thanh cá nhân.  
-  - Ví dụ: Tự động tăng dải tần trung (giọng nói) và giảm tạp âm nền khi người dùng ở chợ.  
-
----
-
-### **Bài toán 11: AI Phát hiện Deepfake Video Call trên Thiết bị**  
-**User Scenario**:  
-- *Chị Lan, kế toán công ty, nhận cuộc gọi video từ "Giám đốc" yêu cầu chuyển tiền gấp. Sau đó, công ty phát hiện đó là deepfake. Toàn bộ quy trình xác thực OTP qua SMS đều bị qua mặt.*  
-
-**User Problem**:  
-- Các cuộc gọi deepfake ngày càng tinh vi, lợi dụng AI để giả mạo người thật.  
-- Người dùng không có công cụ kiểm tra nhanh trong lúc gọi.  
-
-**User Expectation**:  
-- Điện thoại cảnh báo nguy cơ deepfake ngay khi nhận cuộc gọi và đề xuất xác minh (ví dụ: hỏi câu hỏi bí mật).  
-
-**Research**:  
-- Báo cáo từ Onfido (2023): 85% deepfake nhắm vào lừa đảo qua video call.  
-- Công nghệ phát hiện deepfake hiện tại chủ yếu chạy trên server, gây chậm trễ.  
-
-**Solution**:  
-- **On-Device Deepfake Detector**:  
-  - Mô hình Lightweight AI chạy trực tiếp trên điện thoại, phân tích micro-expression, ánh sáng da và độ trễ giữa âm thanh/hình ảnh.  
-  - Ví dụ: Phát hiện mắt không chớp tự nhiên hoặc mép miệng lệch khi nói.  
-
----
-
-### **Bài toán 12: Tạo avatar động phản ánh cảm xúc thời gian thực**  
-**User Scenario**:  
-- *Huy, một streamer, muốn dùng avatar thay mặt khi livestream nhưng avatar hiện tại chỉ có biểu cảm cứng nhắc. Anh phải dùng PC cấu hình cao để render avatar, không thể áp dụng khi stream bằng điện thoại.*  
-
-**User Problem**:  
-- Avatar ảo thiếu chân thực, không bắt kịp biểu cảm khuôn mặt và cử chỉ tay.  
-- Công cụ tạo avatar đòi hỏi xử lý đám mây, không hoạt động offline.  
-
-**User Expectation**:  
-- Tạo avatar sống động, phản ứng theo thời gian thực ngay trên điện thoại.  
-
-**Research**:  
-- Meta đã giới thiệu Codec Avatars nhưng yêu cầu VR headset và kết nối mạng mạnh.  
-- Nghiên cứu từ NVIDIA (2023): Mô hình AI nén có thể chạy trên mobile GPU với độ trễ dưới 50ms.  
-
-**Solution**:  
-- **Mobile Neural Avatar Engine**:  
-  - Mô hình GAN nén (TinyGAN) chạy trên NPU điện thoại, ánh xạ biểu cảm qua camera selfie và cảm biến chuyển động.  
-  - Ví dụ: Avatar nháy mắt, cười hoặc nhíu mày đồng thời với người dùng.  
+* **2.5. Required technology and technology acquisition plan**
+    * **Công nghệ cần thiết:**
+        * **LLM & API:** Đã được cung cấp bởi cuộc thi.
+        * **Ngôn ngữ lập trình:** Python (phổ biến cho AI/ML và có nhiều thư viện hỗ trợ).
+        * **Thư viện/Framework:**
+            * LangChain hoặc LlamaIndex (hỗ trợ xây dựng ứng dụng LLM, RAG, Tool Calling).
+            * Thư viện xử lý file: `python-pptx`, `python-docx`, `PyPDF2` hoặc `pdfminer.six`.
+            * Vector Database: ChromaDB, FAISS (chạy local/on-premise), hoặc các dịch vụ cloud nếu được phép.
+            * Web Framework (cho backend chatbot): FastAPI hoặc Flask.
+            * Frontend Framework (cho giao diện chatbot - tùy chọn): React, Vue, hoặc Gradio/Streamlit (để làm PoC nhanh).
+        * **Hạ tầng:** Máy chủ nội bộ hoặc cloud (tuân thủ quy định công ty A) để host ứng dụng backend và Vector DB.
+    * **Kế hoạch tiếp cận công nghệ:**
+        * LLM/API: Sử dụng theo tài liệu và hướng dẫn của cuộc thi.
+        * Thư viện Python: Cài đặt qua pip (cần kiểm tra chính sách firewall/proxy của công ty, có thể cần Approval để truy cập PyPI hoặc cần sử dụng kho artifact nội bộ nếu có).
+        * Vector Database: Ưu tiên các giải pháp có thể chạy on-premise (như FAISS, ChromaDB) để tránh phụ thuộc cloud và tuân thủ quy định bảo mật.
+        * Hạ tầng: Đề xuất sử dụng môi trường development/staging hiện có của công ty hoặc xin cấp phép tài nguyên cần thiết (có thể lại là một quy trình Approval!).
+        * Kiến thức/Nhân lực: Tận dụng kỹ năng của thành viên dự án. Nếu thiếu, đề xuất tham gia training hoặc tìm kiếm sự hỗ trợ từ các chuyên gia trong/ngoài công ty (nếu được phép).
 
 ---
+
+Hy vọng bản phác thảo chi tiết này sẽ giúp bạn hoàn thiện hồ sơ dự thi một cách tốt nhất. Ý tưởng của bạn rất tiềm năng và giải quyết đúng vấn đề thực tế của công ty. Chúc bạn thành công trong cuộc thi!
