@@ -1,94 +1,3 @@
-
-### **Bài toán 1: Tối ưu đa nhiệm xuyên thiết bị khi họp trực tuyến**  
-
-**Solution**:  
-- **AI Task Migrator**: Sử dụng mô hình AI để phân tích tải từng thiết bị và đề xuất chuyển task tối ưu. Ví dụ: Khi điện thoại quá nóng, AI tự động chuyển việc render slide sang laptop.  
-
----
-
-### **Bài toán 2: Trợ lý ảo cá nhân hóa đa thiết bị nhưng không xâm phạm riêng tư**  
-**User Scenario**:  
-- *Bình, một bác sĩ, dùng trợ lý ảo trên smartwatch để nhắc lịch khám bệnh, đồng thời dùng loa thông minh ở nhà để đọc tin tức y khoa. Tuy nhiên, anh lo ngại lịch trình làm việc chứa thông tin bệnh nhân nhạy cảm có thể bị rò rỉ khi đồng bộ qua cloud.*  
-
-**User Problem**:  
-- Dữ liệu cá nhân được lưu trữ tập trung trên cloud, dễ bị tấn công hoặc sử dụng sai mục đích.  
-- Trợ lý ảo không nhất quán khi chuyển đổi giữa các thiết bị (ví dụ: smartwatch không nhớ lịch sử tương tác từ loa).  
-
-**User Expectation**:  
-- Trợ lý ảo học tập thói quen từ mọi thiết bị nhưng không lưu dữ liệu nhạy cảm lên server.  
-
-**Research**:  
-- Báo cáo của McKinsey (2022) cho thấy 72% người dùng ngành y tế từ chối dùng AI vì lo ngại bảo mật.  
-- Công nghệ Federated Learning (FL) của Google chỉ áp dụng cho dữ liệu phi cấu trúc, chưa xử lý được thông tin có ngữ cảnh phức tạp.  
-
-**Solution**:  
-- **On-Device AI Trainer**: Mỗi thiết bị huấn luyện model cục bộ, sau đó tổng hợp tri thức qua blockchain để đảm bảo tính minh bạch và không lưu trữ dữ liệu gốc.  
-
----
-
-### **Bài toán 3: Phục hồi kết nối tự động khi chơi game đa thiết bị**  
-**User Scenario**:  
-- *Nhóm bạn của Minh chơi game AR Pokémon GO cùng lúc trên smartphone, tablet và kính AR. Khi đi vào khu vực sóng yếu, smartphone mất kết nối, khiến cả nhóm không thể cùng săn Pokémon. Họ phải thoát game và kết nối lại thủ công.*  
-
-**User Problem**:  
-- Ứng dụng đa thiết bị không tự động phục hồi phiên làm việc khi mất kết nối tạm thời.  
-- Người dùng phải thiết lập lại từ đầu, gây gián đoạn trải nghiệm.  
-
-**User Expectation**:  
-- Game tự động chuyển vai trò host sang thiết bị có kết nối ổn định nhất mà không cần can thiệp thủ công.  
-
-**Research**:  
-- Nghiên cứu từ ĐH Carnegie Mellon (2021) chỉ ra rằng 30% người dùng game AR từ bỏ trận đấu nếu mất kết nối quá 10 giây.  
-- Công nghệ Mesh Networking (như GoTenna) mới chỉ áp dụng cho IoT, chưa tích hợp vào nền tảng giải trí.  
-
-**Solution**:  
-- **Decentralized Connection Pool**: Tạo mạng lưới P2P giữa các thiết bị, sử dụng AI để dự đoán thiết bị có kết nối ổn định nhất làm host dự phòng.  
-
----
-
-### **Bài toán 4 (MDE Standalone): Đồng bộ clipboard đa nền tảng**  
-**User Scenario**:  
-- *Hạnh, một nhà báo, copy đoạn văn bản từ điện thoại Android để dán vào bài viết trên MacBook. Cô phải mở email để gửi cho chính mình vì tính năng Universal Clipboard của Apple không hỗ trợ Android.*  
-
-**User Problem**:  
-- Không có giải pháp đồng bộ clipboard hiệu quả giữa các hệ điều hành khác nhau (iOS, Android, Windows).  
-- Người dùng phải dùng ứng dụng trung gian (email, messenger), tốn thời gian và tiềm ẩn rủi ro bảo mật.  
-
-**User Expectation**:  
-- Sao chép nội dung từ thiết bị này và dán trực tiếp lên thiết bị khác, bất kể nền tảng.  
-
-**Research**:  
-- Công cụ như KDE Connect chỉ hoạt động trên Linux/Android, không hỗ trợ iOS.  
-- Khảo sát của Gartner (2023): 45% người dùng đa nền tảng đánh mất dữ liệu khi chuyển thiết bị.  
-
-**Solution**:  
-- **Cross-OS Clipboard Protocol**: Giao thức mã nguồn mở, sử dụng mã hóa end-to-end và quét QR code để thiết lập kết nối trực tiếp giữa các thiết bị.  
-
----
-
-### **Bài toán 5 (AI Standalone): Tối ưu pin điện thoại theo thói quen cá nhân**  
-**User Scenario**:  
-- *Tuấn, một tài xế công nghệ, thường xuyên hết pin điện thoại vào giờ cao điểm do ứng dụng gọi xe chạy ngầm. Anh phải mang theo pin dự phòng cồng kềnh vì chế độ tiết kiệm pin mặc định tắt hết tính năng cần thiết.*  
-
-**User Problem**:  
-- Chế độ tiết kiệm pin không thông minh, tắt bừa bãi các ứng dụng quan trọng.  
-- Người dùng không thể cá nhân hóa ứng dụng được ưu tiên khi pin yếu.  
-
-**User Expectation**:  
-- Hệ thống học thói quen sử dụng để tối ưu pin mà không vô hiệu hóa ứng dụng thiết yếu.  
-
-**Research**:  
-- Tính năng Adaptive Battery của Android chỉ dựa trên hành vi chung, không cá nhân hóa.  
-- Theo Battery University, việc sạc không tối ưu làm giảm 20% tuổi thọ pin sau 1 năm.  
-
-**Solution**:  
-- **Context-Aware Battery AI**: Kết hợp Reinforcement Learning và dữ liệu sensor (GPS, thời gian) để dự đoán ứng dụng cần ưu tiên (ví dụ: ứng dụng gọi xe được giữ chạy nếu người dùng thường làm việc từ 5-7 PM).  
-
----
-
-### **Bài toán 6 (AI + MDE): Tự động chuyển chế độ thiết bị theo ngữ cảnh**  
-**User Scenario**:  
-- *Trang, một người mẹ, thường xuyên quên chuyển điện thoại sang chế độ im lặng khi vào họp hoặc chuyển sang chế độ báo thức lớn khi dậy cho con đi học. Cô phải thao tác thủ công nhiều lần trong ngày.*  
 Chào bạn,
 
 Rất vui được hỗ trợ bạn với vai trò chuyên gia Generative AI. Ý tưởng của bạn về việc tự động hóa quy trình Approval bằng LLM và Tool Calling là rất thực tế và có tiềm năng lớn trong môi trường công ty A. Dưới đây là cách bạn có thể hoàn thiện ý tưởng này theo form của cuộc thi:
@@ -151,7 +60,8 @@ Rất vui được hỗ trợ bạn với vai trò chuyên gia Generative AI. Ý
 * **2.1. List of data to be utilized (type, source, update frequency, etc.)**
     * **Loại dữ liệu:** Tài liệu hướng dẫn quy trình Approval dạng phi cấu trúc (chủ yếu là văn bản, có thể kèm hình ảnh minh họa).
     * **Nguồn dữ liệu:** Kho tài liệu nội bộ hiện có của công ty A (thư mục chia sẻ, Sharepoint, Confluence, v.v.).
-    * **Định dạng:** PP- **AI Task Migrator**: Sử dụng mô hình AI để phân tích tải từng thiết bị và đề xuất chuyển task tốụ: Khi điện thoại quá nóng, AI tự động chuyển việc render slide sang laptop.  cập nhật tài liệu vào hệ thống AI khi có thay đổi. Ban đầu, có thể cập nhật thủ công theo đợt (VD: hàng quý), sau đó có thể tự động hóa việc theo dõi thay đổi.
+    * **Định dạng:** PPT, Word, PDF.
+    * **Tần suất cập nhật:** Dữ liệu sẽ được cập nhật khi các quy trình Approval thay đổi. Cần có quy trình phối hợp với các bộ phận quản lý quy trình (VD: IT, Security) để cập nhật tài liệu vào hệ thống AI khi có thay đổi. Ban đầu, có thể cập nhật thủ công theo đợt (VD: hàng quý), sau đó có thể tự động hóa việc theo dõi thay đổi.
 
 * **2.2. Data collection, preprocessing, and AI utilization Plan**
     * **Thu thập dữ liệu:** Tập hợp toàn bộ các file tài liệu hướng dẫn Approval liên quan từ các nguồn đã xác định.
