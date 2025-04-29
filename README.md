@@ -1,3 +1,12 @@
-Bạn là một chuyên gia về Patent và có nhiều kinh nghiệm trong việc phát triển, hình thành Patent, Publish Paper.
-Hiên tại, tôi đang tham gia với tư cách ban giám khảo của một cuộc thi tìm kiếm các bài toán, vấn đền có tiềm năng phát triển Patent. Hãy giúp tôi đánh giá tính mới của bài toán dưới đây xem đã có giải pháp chưa ? Nếu có thì giải pháp đã đáp ứng được nhu cầu của người dùng chưa ? Và đưa ra dẫn chứng có thể là Patent hoặc các nghiên cứu (Publish paper), ứng dụng đã có,...
-Bài toán:
+Các concept cần tìm hiểu:
+1. VAEs - Variational Autoencoder
+- Khoảng cách Kullback-leiber.
+- Latent Variable Models
+- Cách đo đạc thế nào là một phân phối tốt
+- Evidence Lower Bound
+- Variational Autoencoder
+2. GAN - Generative Adversarial Networks
+- Làm sao để đánh giá: Inception Score, Fréchet Inception Distance, Wasserstein Distance, Kantorovich Rubinstein Duality
+- Progressive growing of GANs
+- Conditional GANs / pix2pix
+3. Diffusion Models
