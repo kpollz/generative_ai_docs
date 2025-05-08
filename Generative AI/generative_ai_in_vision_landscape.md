@@ -186,27 +186,27 @@ Dưới đây sẽ làm trình bày chi tiết hiện trạng các bài toán tr
       - **Tối ưu hiệu quả**: Phát triển mô hình nhẹ hơn cho ứng dụng thời gian thực.
 
   - **Denoising**: Loại bỏ nhiễu (Gaussian, Poisson, hoặc nhiễu thực tế) từ hình ảnh để khôi phục nội dung gốc.
-  - **Kỹ thuật**:
-    - **CNNs**: Sử dụng tích chập để học ánh xạ từ ảnh nhiễu sang ảnh sạch, như DnCNN.
-    - **Autoencoders**: Mã hóa và giải mã để tái tạo hình ảnh sạch.
-    - **GANs**: Sử dụng adversarial loss để tạo kết quả chân thực.
-    - **Diffusion Models**: Sử dụng khử nhiễu để khôi phục hình ảnh.
-  - **SOTA**:
-    - **CGNet** ([SIDD Benchmark](https://paperswithcode.com/sota/image-denoising-on-sidd)): Đạt SOTA trên bộ dữ liệu SIDD, tập trung vào nhiễu thực tế từ điện thoại thông minh.
-    - **DnCNN**: Chuẩn mực cho nhiễu Gaussian, hiệu quả và đơn giản.
-    - **Restormer**: Sử dụng Transformer để cải thiện hiệu suất trên nhiễu thực tế.
-  - **Thách thức**:
-    - **Nhiễu thực tế**: Hầu hết mô hình được huấn luyện trên nhiễu tổng hợp (Gaussian), nhưng nhiễu thực tế phức tạp hơn (nhiễu cảm biến, nén).
-    - **Bảo toàn chi tiết**: Loại bỏ nhiễu mà không làm mất texture hoặc cạnh.
-    - **Tổng quát hóa**: Khó áp dụng mô hình trên các mức nhiễu và loại hình ảnh khác nhau.
-    - **Hiệu quả tính toán**: Các mô hình như Restormer yêu cầu tài nguyên lớn.
-    - **Dữ liệu ghép đôi**: Cần dữ liệu sạch-nhiễu lớn, khó thu thập trong thực tế.
-  - **Cơ hội**:
-    - **Mô hình nhiễu thực tế**: Phát triển mô hình chuyên biệt cho nhiễu thực tế, như nhiễu cảm biến trong y tế hoặc nhiếp ảnh ([Image Denoising Survey](https://epubs.siam.org/doi/10.1137/23M1545859)).
-    - **Học không giám sát**: Sử dụng dữ liệu không ghép đôi hoặc tự giám sát để giảm phụ thuộc vào dữ liệu sạch.
-    - **Mô hình đa nhiệm**: Kết hợp khử nhiễu với siêu phân giải hoặc khử mờ để xử lý đa suy giảm.
-    - **Kiến trúc nhẹ**: Thiết kế mô hình hiệu quả hơn, như sử dụng Mamba hoặc attention tối ưu, để triển khai trên thiết bị biên.
-    - **Tích hợp mô hình vật lý**: Kết hợp các mô hình vật lý của nhiễu (như Poisson) để cải thiện độ chính xác.
+    - **Kỹ thuật**:
+      - **CNNs**: Sử dụng tích chập để học ánh xạ từ ảnh nhiễu sang ảnh sạch, như DnCNN.
+      - **Autoencoders**: Mã hóa và giải mã để tái tạo hình ảnh sạch.
+      - **GANs**: Sử dụng adversarial loss để tạo kết quả chân thực.
+      - **Diffusion Models**: Sử dụng khử nhiễu để khôi phục hình ảnh.
+    - **SOTA**:
+      - **CGNet** ([SIDD Benchmark](https://paperswithcode.com/sota/image-denoising-on-sidd)): Đạt SOTA trên bộ dữ liệu SIDD, tập trung vào nhiễu thực tế từ điện thoại thông minh.
+      - **DnCNN**: Chuẩn mực cho nhiễu Gaussian, hiệu quả và đơn giản.
+      - **Restormer**: Sử dụng Transformer để cải thiện hiệu suất trên nhiễu thực tế.
+    - **Thách thức**:
+      - **Nhiễu thực tế**: Hầu hết mô hình được huấn luyện trên nhiễu tổng hợp (Gaussian), nhưng nhiễu thực tế phức tạp hơn (nhiễu cảm biến, nén).
+      - **Bảo toàn chi tiết**: Loại bỏ nhiễu mà không làm mất texture hoặc cạnh.
+      - **Tổng quát hóa**: Khó áp dụng mô hình trên các mức nhiễu và loại hình ảnh khác nhau.
+      - **Hiệu quả tính toán**: Các mô hình như Restormer yêu cầu tài nguyên lớn.
+      - **Dữ liệu ghép đôi**: Cần dữ liệu sạch-nhiễu lớn, khó thu thập trong thực tế.
+    - **Cơ hội**:
+      - **Mô hình nhiễu thực tế**: Phát triển mô hình chuyên biệt cho nhiễu thực tế, như nhiễu cảm biến trong y tế hoặc nhiếp ảnh ([Image Denoising Survey](https://epubs.siam.org/doi/10.1137/23M1545859)).
+      - **Học không giám sát**: Sử dụng dữ liệu không ghép đôi hoặc tự giám sát để giảm phụ thuộc vào dữ liệu sạch.
+      - **Mô hình đa nhiệm**: Kết hợp khử nhiễu với siêu phân giải hoặc khử mờ để xử lý đa suy giảm.
+      - **Kiến trúc nhẹ**: Thiết kế mô hình hiệu quả hơn, như sử dụng Mamba hoặc attention tối ưu, để triển khai trên thiết bị biên.
+      - **Tích hợp mô hình vật lý**: Kết hợp các mô hình vật lý của nhiễu (như Poisson) để cải thiện độ chính xác.
 
   - **Deblur**: Loại bỏ mờ (do chuyển động, mất nét, hoặc các yếu tố khác) để khôi phục hình ảnh sắc nét.
     - **Kỹ thuật**:
